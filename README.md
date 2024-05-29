@@ -63,9 +63,9 @@ Ensure you have the following installed:
 Contributions are welcome! Please follow these steps:
 
 1. Fork the repository
-2. Create a new branch (`git checkout -b feature-branch`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature-branch`)
+2. Create a new branch (`git checkout -b main`)
+3. Commit your changes (`git commit -m 'main'`)
+4. Push to the branch (`git push origin man`)
 5. Open a Pull Request
 
 ## 📝 License
