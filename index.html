@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js/dist/css/shepherd.css">
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js/dist/js/shepherd.min.js"></script>
+    <style>
+      /* Custom Shepherd.js Styles */
+      .shepherd-theme-custom .shepherd-step {
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        border-radius: 8px;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        font-family: 'Arial', sans-serif;
+        padding: 15px;
+      }
+
+      .shepherd-theme-custom .shepherd-title {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      .shepherd-theme-custom .shepherd-text {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+      }
+
+      .shepherd-theme-custom .shepherd-button {
+        background: #feb47b;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        margin: 0 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+      }
+
+      .shepherd-theme-custom .shepherd-button:hover {
+        background: #ff7e5f;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="mainsection">
+            <div class="date" id="step-1">Available Income</div><br/>
+            <div class="mainfigure"><i>----</i></div>
+            <div class="incomeUI" id="step-2">
+                <h1>INCOME</h1>
+                <p class="incomeUInum">----</p>
+            </div>
+            <div class="expenseUI" id="step-3">
+                <h1>EXPENSE</h1>
+                <p class="expenseUInum">----</p>
+            </div>
+        </div>
+    
+        <div class="enterdatasection">
+            <select class="options" id="step-8">
+                <option value="income" selected>Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <input type="text" class="description box" id="step-9" placeholder="Enter Description">
+            <input type="text" class="amount box" id="step-10" placeholder="Enter Value">
+            <button class="addbtn" id="step-6">Save</button><br/>
+            <button class="showalldata" id="step-7">View Data History</button>
+        </div>
+
+        <div class="mainUISection">
+            <div class="incomeUIsectionout">
+                <h2 id="texthere">INCOME</h2>
+            </div>
+            <div class="expenseUIsectionout">
+                <hr class="line">
+                <h2 id="texthere">EXPENSE</h2>
+            </div>
+        </div>
+        <div class="storagesection" id="step-5">
+            <div class="keyvaluesection2"></div><br/><br/>
+            <button class="storagebtn" onclick="localStorage.clear(); location.reload()">Clear All Data</button>
+            <button class="storagebtn" onclick="removeLS()">Close</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+<script src="tour.js"></script>
+</body>
+</html>
