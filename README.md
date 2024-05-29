@@ -31,7 +31,7 @@ Ensure you have the following installed:
 
     ```sh
     git clone https://github.com/your-username/Budget-Tracker.git
-    cd budget-app
+    cd Budget-Tracker
     ```
 
 2. **Install Shepherd.js**
