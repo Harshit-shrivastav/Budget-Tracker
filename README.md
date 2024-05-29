@@ -14,7 +14,7 @@ Welcome to the Budget App! This application helps you manage your income and exp
 
 Watch the demo video below to see the Budget App in action:
 
-https://github.com/some_video.mp4
+https://github.com/Harshit-shrivastav/Budget-Tracker/raw/main/demo/budget.mp4
 
 ## 🚀 Getting Started
 
