@@ -30,7 +30,7 @@ Ensure you have the following installed:
 1. **Clone the Repository**
 
     ```sh
-    git clone https://github.com/your-username/Budget-Tracker.git
+    git clone https://github.com/Harshit-shrivastav/Budget-Tracker.git
     cd Budget-Tracker
     ```
 
