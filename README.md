@@ -80,4 +80,4 @@ If you have any questions, feel free to reach out:
 
 ---
 
-Made with ❤️ by [Your Name](https://github.com/Harshit-shrivastav)
+Made with ❤️ by [Harshit Shrivastav](https://github.com/Harshit-shrivastav)
