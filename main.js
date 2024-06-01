@@ -153,68 +153,67 @@ let UIController = (() => {
 
 //LOCAL STORAGE SECTION
 let storageSection = ((budgetSect) => {
-	let id = 1;
-	let inputs = budgetSect.getInputs();
-	let idPack = budgetSect.ID(inputs.option);
-	let incSum = 0;
-	let expSum = 0;
+    let id = 1;
+    let inputs = budgetSect.getInputs();
+    let idPack = budgetSect.ID(inputs.option);
+    let incSum = 0;
+    let expSum = 0;
 
-	return {
-		activate: (input) => {
-			let dataObject, key, keyvalue, ID;
-			dataObject = {
-				Type: input.option,
-				Description: input.description,
-				Amount: input.amount,
-			};
-			id = Math.floor(Math.random() * 30000000) + 1;
+    return {
+        activate: (input) => {
+            let dataObject, key, keyvalue, ID;
+            dataObject = {
+                Type: input.option,
+                Description: input.description,
+                Amount: input.amount,
+            };
+            id = Math.floor(Math.random() * 30000000) + 1;
 
-			ID = {
-				id: id,
-				incSum: incSum,
-				expSum: expSum,
-			};
+            ID = {
+                id: id,
+                incSum: incSum,
+                expSum: expSum,
+            };
 
-			// Save the dataObject to localStorage with a unique key
-			localStorage.setItem(JSON.stringify(ID), JSON.stringify(dataObject));
-			console.log(dataObject);
-		},
+            // Save the dataObject to localStorage with a unique key
+            localStorage.setItem(JSON.stringify(ID), JSON.stringify(dataObject));
+            console.log(dataObject);
+        },
 
-		showData: () => {
-			let keyvaluesection, key, keyvalue, parsedValue;
-			keyvaluesection = document.querySelector(".keyvaluesection2");
+        showData: () => {
+            let keyvaluesection, key, keyvalue, parsedValue;
+            keyvaluesection = document.querySelector(".keyvaluesection2");
+            keyvaluesection.innerHTML = ''; // Clear previous content
 
-			for (let i = 0; i < localStorage.length; i++) {
-				key = localStorage.key(i);
-				keyvalue = localStorage.getItem(key);
+            for (let i = 0; i < localStorage.length; i++) {
+                key = localStorage.key(i);
+                keyvalue = localStorage.getItem(key);
 
-				try {
-					// Try to parse the keyvalue as JSON
-					parsedValue = JSON.parse(keyvalue);
+                try {
+                    // Try to parse the keyvalue as JSON
+                    parsedValue = JSON.parse(keyvalue);
 
-					// Format the parsedValue in a user-friendly manner
-					let formattedValue = "";
-					if (typeof parsedValue === 'object' && parsedValue !== null) {
-						formattedValue = "<ul>";
-						for (let prop in parsedValue) {
-							formattedValue += `<li><strong>${prop}:</strong> ${parsedValue[prop]}</li>`;
-						}
-						formattedValue += "</ul>";
-					} else {
-						// If it's not an object, just use the raw value
-						formattedValue = keyvalue;
-					}
+                    // Format the parsedValue in a user-friendly manner
+                    let formattedValue = "<div class='history-item'>";
+                    if (typeof parsedValue === 'object' && parsedValue !== null) {
+                        for (let prop in parsedValue) {
+                            formattedValue += `<p><strong>${prop}:</strong> ${parsedValue[prop]}</p>`;
+                        }
+                    } else {
+                        // If it's not an object, just use the raw value
+                        formattedValue = `<p>${keyvalue}</p>`;
+                    }
+                    formattedValue += "</div>";
 
-					keyvaluesection.insertAdjacentHTML("beforeend", `${formattedValue}<br/><br/>`);
-				} catch (e) {
-					// If parsing fails, display the raw keyvalue
-					keyvaluesection.insertAdjacentHTML("beforeend", `${keyvalue}<br/><br/>`);
-				}
-			}
-		},
-	};
+                    keyvaluesection.insertAdjacentHTML("beforeend", formattedValue);
+                } catch (e) {
+                    // If parsing fails, display the raw keyvalue
+                    keyvaluesection.insertAdjacentHTML("beforeend", `<p>${keyvalue}</p>`);
+                }
+            }
+        },
+    };
 })(budgetController);
-
 
 // GENERAL CONTROLLER SECTION
 let Controller = (function (uicontroller, budgetcontroller, storageSection) {
@@ -303,7 +302,6 @@ function showit() {
 }
 
 function removeLS() {
-	location.reload();
-	document.querySelector(".storagesection").style.display = "none";
+    document.querySelector(".storagesection").style.display = "none";
 }
 removeLS;
