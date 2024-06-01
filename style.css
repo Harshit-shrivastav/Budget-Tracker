@@ -213,8 +213,6 @@ button:active {
         font-size: 0.9rem;
     }
 }
-
-<style>
   .shepherd-theme-custom .shepherd-step {
     background: linear-gradient(to right, #ff7e5f, #feb47b);
     border-radius: 8px;
