@@ -293,6 +293,15 @@ Controller.trigger();
 
 // activate();
 
+function clearAllData() {
+    let tourSeenData = localStorage.getItem('tourSeen');
+    localStorage.clear(); // Clear all data
+    if (tourSeenData !== null) {
+        localStorage.setItem('tourSeen', tourSeenData); // Restore tour seen data
+    }
+    location.reload();
+}
+
 let inputs = budgetController.getInputs();
 document.querySelector(".showalldata").addEventListener("click", showit);
 function showit() {
