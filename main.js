@@ -152,12 +152,13 @@ let UIController = (() => {
 })();
 
 //LOCAL STORAGE SECTION
-let storageSection = ((budgeSect) => {
+let storageSection = ((budgetSect) => {
 	let id = 1;
-	let inputs = budgeSect.getInputs();
-	let idPack = budgeSect.ID(inputs.option);
+	let inputs = budgetSect.getInputs();
+	let idPack = budgetSect.ID(inputs.option);
 	let incSum = 0;
 	let expSum = 0;
+
 	return {
 		activate: (input) => {
 			let dataObject, key, keyvalue, ID;
@@ -167,56 +168,53 @@ let storageSection = ((budgeSect) => {
 				Amount: input.amount,
 			};
 			id = Math.floor(Math.random() * 30000000) + 1;
-			// let amountHere = dataObject.Amount;
-			// for (let amountHere of dataObject)
-			// if (dataObject.Type === "income") {
-			// 	// let finalIncSum = 0;
-			// 	// incSum += dataObject.Amount;
-			// 	// finalIncSum += incSum;
-			// 	let amountHere = dataObject.Amount;
-			// 	amountHere.forEach((current) => {
-			// 		return (incSum += current);
-			// 	});
-			// 	console.log(incSum);
-			// } else if (dataObject.Type === "expense") {
-			// 	expSum += dataObject.Amount;
-			// 	console.log(incSum);
-			// }
+
 			ID = {
 				id: id,
 				incSum: incSum,
 				expSum: expSum,
 			};
 
-			keyvalue = JSON.parse(localStorage.getItem(dataObject));
+			// Save the dataObject to localStorage with a unique key
 			localStorage.setItem(JSON.stringify(ID), JSON.stringify(dataObject));
 			console.log(dataObject);
 		},
 
 		showData: () => {
-			let keyvaluesection, key, keyvalue;
+			let keyvaluesection, key, keyvalue, parsedValue;
 			keyvaluesection = document.querySelector(".keyvaluesection2");
+
 			for (let i = 0; i < localStorage.length; i++) {
 				key = localStorage.key(i);
 				keyvalue = localStorage.getItem(key);
-				keyvaluesection.insertAdjacentHTML(
-					"beforeend",
-					` ${keyvalue}<br/><br/>`
-				);
-				// localStorage.getItem(key).forEach((cur) => {
-				// 	console.log(`${cur}`);
-				// });
-				// for (let key in localStorage) {
-				// 	console.log(`${key}`);
-				// }
+
+				try {
+					// Try to parse the keyvalue as JSON
+					parsedValue = JSON.parse(keyvalue);
+
+					// Format the parsedValue in a user-friendly manner
+					let formattedValue = "";
+					if (typeof parsedValue === 'object' && parsedValue !== null) {
+						formattedValue = "<ul>";
+						for (let prop in parsedValue) {
+							formattedValue += `<li><strong>${prop}:</strong> ${parsedValue[prop]}</li>`;
+						}
+						formattedValue += "</ul>";
+					} else {
+						// If it's not an object, just use the raw value
+						formattedValue = keyvalue;
+					}
+
+					keyvaluesection.insertAdjacentHTML("beforeend", `${formattedValue}<br/><br/>`);
+				} catch (e) {
+					// If parsing fails, display the raw keyvalue
+					keyvaluesection.insertAdjacentHTML("beforeend", `${keyvalue}<br/><br/>`);
+				}
 			}
 		},
-
-		// displayData: () => {
-		// 	console.log(JSON.stringify(dataObject));
-		// },
 	};
 })(budgetController);
+
 
 // GENERAL CONTROLLER SECTION
 let Controller = (function (uicontroller, budgetcontroller, storageSection) {
