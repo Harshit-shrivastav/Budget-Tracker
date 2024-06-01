@@ -6,10 +6,38 @@ function startTour() {
 
     const tour = new Shepherd.Tour({
         defaultStepOptions: {
-            classes: 'shepherd-theme-custom', // Apply custom theme
-            scrollTo: true // Enable auto-scrolling to the element
+            classes: 'shepherd-theme-custom',
+            scrollTo: true
         }
     });
+
+    const quitAction = () => {
+        localStorage.setItem('tourSeen', true);
+        tour.cancel();
+    };
+
+    const finishAction = () => {
+        localStorage.setItem('tourSeen', true);
+        tour.complete();
+    };
+
+    const quitButton = {
+        text: 'Quit',
+        action: quitAction,
+        classes: 'shepherd-button'
+    };
+
+    const nextButton = {
+        text: 'Next',
+        action: tour.next,
+        classes: 'shepherd-button'
+    };
+
+    const finishButton = {
+        text: 'Finish',
+        action: finishAction,
+        classes: 'shepherd-button'
+    };
 
     tour.addStep({
         id: 'step-1',
@@ -18,19 +46,7 @@ function startTour() {
             element: '#step-1',
             on: 'bottom'
         },
-        buttons: [
-            {
-                text: 'Quit',
-                action: tour.cancel,
-                localStorage.setItem('tourSeen', true);
-                classes: 'shepherd-button'
-            },
-            {
-                text: 'Next',
-                action: tour.next,
-                classes: 'shepherd-button'
-            }
-        ]
+        buttons: [quitButton, nextButton]
     });
 
     tour.addStep({
@@ -40,19 +56,7 @@ function startTour() {
             element: '#step-2',
             on: 'bottom'
         },
-        buttons: [
-            {
-                text: 'Quit',
-                action: tour.cancel,
-                localStorage.setItem('tourSeen', true);
-                classes: 'shepherd-button'
-            },
-            {
-                text: 'Next',
-                action: tour.next,
-                classes: 'shepherd-button'
-            }
-        ]
+        buttons: [quitButton, nextButton]
     });
 
     tour.addStep({
@@ -62,19 +66,7 @@ function startTour() {
             element: '#step-3',
             on: 'bottom'
         },
-        buttons: [
-            {
-                text: 'Quit',
-                action: tour.cancel,
-                localStorage.setItem('tourSeen', true);
-                classes: 'shepherd-button'
-            },
-            {
-                text: 'Next',
-                action: tour.next,
-                classes: 'shepherd-button'
-            }
-        ]
+        buttons: [quitButton, nextButton]
     });
 
     tour.addStep({
@@ -84,19 +76,7 @@ function startTour() {
             element: '.options',
             on: 'top'
         },
-        buttons: [
-            {
-                text: 'Quit',
-                action: tour.cancel,
-                localStorage.setItem('tourSeen', true);
-                classes: 'shepherd-button'
-            },
-            {
-                text: 'Next',
-                action: tour.next,
-                classes: 'shepherd-button'
-            }
-        ]
+        buttons: [quitButton, nextButton]
     });
 
     tour.addStep({
@@ -106,19 +86,7 @@ function startTour() {
             element: '.description.box',
             on: 'top'
         },
-        buttons: [
-            {
-                text: 'Quit',
-                action: tour.cancel,
-                localStorage.setItem('tourSeen', true);
-                classes: 'shepherd-button'
-            },
-            {
-                text: 'Next',
-                action: tour.next,
-                classes: 'shepherd-button'
-            }
-        ]
+        buttons: [quitButton, nextButton]
     });
 
     tour.addStep({
@@ -128,19 +96,7 @@ function startTour() {
             element: '.amount.box',
             on: 'top'
         },
-        buttons: [
-            {
-                text: 'Quit',
-                action: tour.cancel,
-                localStorage.setItem('tourSeen', true);
-                classes: 'shepherd-button'
-            },
-            {
-                text: 'Next',
-                action: tour.next,
-                classes: 'shepherd-button'
-            }
-        ]
+        buttons: [quitButton, nextButton]
     });
 
     tour.addStep({
@@ -150,19 +106,7 @@ function startTour() {
             element: '.enterdatasection',
             on: 'top'
         },
-        buttons: [
-            {
-                text: 'Quit',
-                action: tour.cancel,
-                localStorage.setItem('tourSeen', true);
-                classes: 'shepherd-button'
-            },
-            {
-                text: 'Next',
-                action: tour.next,
-                classes: 'shepherd-button'
-            }
-        ]
+        buttons: [quitButton, nextButton]
     });
 
     tour.addStep({
@@ -172,19 +116,7 @@ function startTour() {
             element: '#step-6',
             on: 'bottom'
         },
-        buttons: [
-            {
-                text: 'Quit',
-                action: tour.cancel,
-                localStorage.setItem('tourSeen', true);
-                classes: 'shepherd-button'
-            },
-            {
-                text: 'Next',
-                action: tour.next,
-                classes: 'shepherd-button'
-            }
-        ]
+        buttons: [quitButton, nextButton]
     });
 
     tour.addStep({
@@ -194,22 +126,7 @@ function startTour() {
             element: '#step-7',
             on: 'bottom'
         },
-        buttons: [
-            {
-                text: 'Quit',
-                action: tour.cancel,
-                classes: 'shepherd-button'
-            },
-            {
-                text: 'Finish',
-                action: tour.complete,
-                classes: 'shepherd-button'
-            }
-        ]
-    });
-
-    tour.on('complete', function() {
-        localStorage.setItem('tourSeen', true);
+        buttons: [quitButton, finishButton]
     });
 
     tour.start();
