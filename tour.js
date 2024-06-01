@@ -22,6 +22,7 @@ function startTour() {
             {
                 text: 'Quit',
                 action: tour.cancel,
+                localStorage.setItem('tourSeen', true);
                 classes: 'shepherd-button'
             },
             {
@@ -43,6 +44,7 @@ function startTour() {
             {
                 text: 'Quit',
                 action: tour.cancel,
+                localStorage.setItem('tourSeen', true);
                 classes: 'shepherd-button'
             },
             {
@@ -64,6 +66,7 @@ function startTour() {
             {
                 text: 'Quit',
                 action: tour.cancel,
+                localStorage.setItem('tourSeen', true);
                 classes: 'shepherd-button'
             },
             {
@@ -85,6 +88,7 @@ function startTour() {
             {
                 text: 'Quit',
                 action: tour.cancel,
+                localStorage.setItem('tourSeen', true);
                 classes: 'shepherd-button'
             },
             {
@@ -106,6 +110,7 @@ function startTour() {
             {
                 text: 'Quit',
                 action: tour.cancel,
+                localStorage.setItem('tourSeen', true);
                 classes: 'shepherd-button'
             },
             {
@@ -127,6 +132,7 @@ function startTour() {
             {
                 text: 'Quit',
                 action: tour.cancel,
+                localStorage.setItem('tourSeen', true);
                 classes: 'shepherd-button'
             },
             {
@@ -148,6 +154,7 @@ function startTour() {
             {
                 text: 'Quit',
                 action: tour.cancel,
+                localStorage.setItem('tourSeen', true);
                 classes: 'shepherd-button'
             },
             {
@@ -169,6 +176,7 @@ function startTour() {
             {
                 text: 'Quit',
                 action: tour.cancel,
+                localStorage.setItem('tourSeen', true);
                 classes: 'shepherd-button'
             },
             {
@@ -201,7 +209,7 @@ function startTour() {
     });
 
     tour.on('complete', function() {
-        localStorage.setItem('tourSeen', true); // Mark tour as seen
+        localStorage.setItem('tourSeen', true);
     });
 
     tour.start();
