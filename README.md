@@ -76,7 +76,7 @@ This project is licensed under the MIT License.
 
 If you have any questions, feel free to reach out:
 
-- GitHub: [Harshit Shrivastav](https://github.com/Harshit-shrivastav)
+- Email : [Harshit Shrivastav](mailto:cchs@duck.com)
 
 ---
 
