@@ -30,7 +30,7 @@ button {
 }
 
 select {
-    background: linear-gradient(145deg, #6dd5ed, #2193b0);
+    background: linear-gradient(145deg, #12c2e9, #c471ed, #f64f59);
     color: white;
 }
 
@@ -43,13 +43,14 @@ input {
 
 button {
     cursor: pointer;
-    background: linear-gradient(145deg, #6dd5ed, #2193b0);
+    background: linear-gradient(145deg, #12c2e9, #c471ed, #f64f59);
     color: white;
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
     width: 100%;
     max-width: 300px;
     margin: 10px auto;
     display: block;
+    padding: 10px; /* Reduced height */
 }
 
 button:hover {
@@ -66,7 +67,7 @@ button:active {
     text-align: center;
     padding: 20px;
     color: white;
-    background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4);
+    background: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59);
     margin-bottom: 30px;
     border-radius: 10px;
 }
@@ -81,26 +82,32 @@ button:active {
 }
 
 .incomeUI, .expenseUI {
-    font-size: 1.2rem;
-    width: 100%;
-    max-width: 400px;
+    font-size: 1rem;
+    width: 80%;
+    max-width: 300px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 15px; /* Reduced height */
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
     color: white;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     text-align: center;
 }
 
 .incomeUI {
-    background: linear-gradient(145deg, #56ab2f, #a8e063);
+    background: linear-gradient(145deg, #00c6ff, #0072ff);
 }
 
 .expenseUI {
     background: linear-gradient(145deg, #ff416c, #ff4b2b);
+}
+
+.placeholder {
+    font-style: italic;
+    font-size: 1.5rem;
+    opacity: 0.5;
 }
 
 .enterdatasection {
@@ -163,9 +170,6 @@ button:active {
     font-size: 13px;
 }
 
-/* Existing CSS styles remain unchanged */
-
-/* Updated CSS for responsive dialog box and list display */
 .storagesection {
     position: absolute;
     width: 80%;
@@ -213,26 +217,27 @@ button:active {
         font-size: 0.9rem;
     }
 }
-  .shepherd-theme-custom .shepherd-step {
+
+.shepherd-theme-custom .shepherd-step {
     background: linear-gradient(to right, #ff7e5f, #feb47b);
     border-radius: 8px;
     color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     font-family: 'Arial', sans-serif;
     padding: 15px;
-  }
+}
 
-  .shepherd-theme-custom .shepherd-title {
+.shepherd-theme-custom .shepherd-title {
     font-size: 1.5em;
     margin-bottom: 10px;
-  }
+}
 
-  .shepherd-theme-custom .shepherd-text {
+.shepherd-theme-custom .shepherd-text {
     font-size: 1.2em;
     margin-bottom: 15px;
-  }
+}
 
-  .shepherd-theme-custom .shepherd-button {
+.shepherd-theme-custom .shepherd-button {
     background: #feb47b;
     border: none;
     color: white;
@@ -241,8 +246,8 @@ button:active {
     border-radius: 4px;
     cursor: pointer;
     font-size: 1em;
-  }
+}
 
-  .shepherd-theme-custom .shepherd-button:hover {
+.shepherd-theme-custom .shepherd-button:hover {
     background: #ff7e5f;
-  }
+}
