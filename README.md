@@ -77,7 +77,7 @@ This project is licensed under the MIT License.
 If you have any questions, feel free to reach out:
 
 - Email : [Harshit Shrivastav](mailto:cchs@duck.com)
-
+- X : [Harshit Shrivastav](https://x.com/asynkronus)
 ---
 
 Made with ❤️ by [Harshit Shrivastav](https://github.com/Harshit-shrivastav)
